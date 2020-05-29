@@ -1,0 +1,10 @@
+#Git will track changes to all the files & folders in this directory
+#but there are some files we want it to ignore
+*.pyc
+*~
+/.vscode
+__pycache__
+myvenv
+db.sqlite3
+/static
+.DS_Store
