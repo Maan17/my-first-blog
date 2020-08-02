@@ -1,7 +1,7 @@
 {% load static %}
 <html>
     <head>
-        <title>Maansi's blog</title>
+        <title style="color:blue">Maansi's blog</title>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
@@ -9,13 +9,13 @@
     </head>
     <body>
         <div class="page-header">
-            <a	href="{% url 'post_new'	%}"	class="top-menu"><span	class="glyphicon glyphicon-plus"></span></a>
-            <a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
             {% if user.is_authenticated %}
                 <p class="top-menu">Hello {{ user.username }} <small>(<a href="{% url 'logout' %}">Logout</a>)</small></p>
+                <a	href="{% url 'post_new'	%}"	class="top-menu"><span	class="glyphicon glyphicon-plus"></span></a>
+                <a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
             {% else %}
                 <a href="{% url 'login' %}" class="top-menu">Login</a>
-                <a href="{% url 'register' %}" class="top-menu">Register</a>
+                <a href="{% url 'register' %}" class="top-menu">Pen an article</a>
             {% endif %}
             <h1><a href="/">Maansi's Blog</a></h1>
         </div> 

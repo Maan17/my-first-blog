@@ -1,29 +1,39 @@
 {% extends "blog/base.html" %}
 
 {% block content %}
-    <form method="post" action="login">
-    <!--<div class="imgcontainer">
-            <img src="img.png" alt="Avatar" class="avatar">
-        </div>-->
+<form action="login" method="post"  class="box">
+    <table>
+        <tr>
+            <td>
+                <label for="uname"><b>Username</b></label>
+            </td>
+            <td>
+                {% csrf_token %}
+                <input type="text" class="input" placeholder="Username" name="username" id="name" type="text" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="psw"><b>Password</b></label>
+            </td>
+            <td>
+                {% csrf_token %}
+                <input class="input" placeholder="Enter Password" name="password" id="password" type="password" required>
+            </td>
+        </tr>
+        <tr >
+            <td width=1000px >
+                    <button type="submit" class="signupbtn">Login</button>    
+            </td>
+        </tr>
+    
+    <div>
+        {% for message in messages %}
+        <h3>{{ message }}</h3>
+        {% endfor %}
+    </div>
+    
+    </table>
+</form>
 
-        <div class="container">
-            <label for="uname"><b>Username</b></label>
-            {% csrf_token %}
-            <input type="text" placeholder="Enter Username" name="username" id="name" required>
-
-            <label for="psw"><b>Password</b></label>
-            {% csrf_token %}
-            <input type="password" placeholder="Enter Password" name="password" id="password" required>
-
-            <button type="submit">Login</button>
-            <label>
-                <input type="checkbox" checked="checked" name="remember">Remember me
-            </label>
-        </div>
-
-        <div class="container" style="background-color: #f1f1f1;">
-            <button type="button" class="cancelbtn">Cancel</button>
-        <!--<span class="psw">Forget<a href="#">Password</a></span>-->
-        </div>
-    </form>
 {% endblock %}

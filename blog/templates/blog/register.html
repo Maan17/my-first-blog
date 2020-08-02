@@ -1,45 +1,75 @@
 {% extends 'blog/base.html' %}
 {% block content %}
-    <form  style="border:none;width:300%" action="register" method="post">
-        
-            <h1>Sign-up</h1>
-            {% csrf_token %}
-            <label for="text"><b>First Name</b></label>
-            <input type="text" placeholder="First Name" name="first_name" id="name" type="text" required>
-            {% csrf_token %}
-            <label for="text"><b>Last Name</b></label>
-            <input type="text" placeholder="Last Name" name="last_name" id="name" type="text" required>
+<h1 style="margin-left: 200px;">Register</h1>
 
-            <label for="text"><b>Username</b></label>
-            {% csrf_token %}
-            <input type="text" placeholder="Username" name="username" id="name" type="text" required>
-
-            <label for="email"><b>Email</b></label>
-            {% csrf_token %}
-            <input type="text" placeholder="Enter Email" name="email" id="email" type="email" required>
-
-            <label for="psw"><b>Password</b></label>
-            {% csrf_token %}
-            <input type="password" placeholder="Enter Password" name="password1" id="password" type="password" required>
-
-            <label for="psw-repeat"><b>Confirm Password</b></label>
-            {% csrf_token %}
-            <input type="password" placeholder="Re-enter password" name="password2" id="password" type="password" required>
-
-            <label>
-                <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px">Remember me
-            </label>
-          
-
-        <div class="clearfix">
-            <button type="button" class="cancelbtn">Cancel</button>
-            <button type="submit" class="signupbtn">Sign Up</button>
-        </div>
-        
-    </form>
+<form action="register" method="POST"  class="box">
+    <table>
+        <tr>
+            <td>
+                {% csrf_token %}
+                <label for="text"><b>First Name</b></label>
+            </td>
+            <td>
+                <input type="text" class="input" placeholder="First Name" name="first_name" id="name" type="text" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {% csrf_token %}
+                <label for="text"><b>Last Name</b></label>
+            </td>
+            <td>
+                <input type="text" class="input" placeholder="Last Name" name="last_name" id="name" type="text" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="text"><b>Username</b></label>
+            </td>
+            <td>
+                {% csrf_token %}
+                <input type="text" class="input" placeholder="Username" name="username" id="name" type="text" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="email"><b>Email</b></label>
+            </td>
+            <td>
+                {% csrf_token %}
+                <input type="text" class="input" placeholder="Enter Email" name="email" id="email" type="email" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="psw"><b>Password</b></label>
+            </td>
+            <td>
+                {% csrf_token %}
+                <input type="password" class="input" placeholder="Enter Password" name="password1" id="password" type="password" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="psw-repeat"><b>Confirm Password</b></label>
+            </td>
+            <td>
+                {% csrf_token %}
+                <input type="password" class="input" placeholder="Re-enter password" name="password2" id="password" type="password" required>
+            </td>
+        </tr>
+        <tr >
+            <td width=1000px >
+                    <button type="submit" class="signupbtn">Sign Up</button>    
+            </td>
+        </tr>
+    
     <div>
         {% for message in messages %}
         <h3>{{ message }}</h3>
         {% endfor %}
     </div>
+    
+    </table>
+</form>
 {% endblock %}
